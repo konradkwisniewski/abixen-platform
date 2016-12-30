@@ -20,5 +20,5 @@ script:
  # - mvn package -pl abixen-platform-core -DskipDocker -Dspring.profiles.active=dev -DcreateDbSchema=true
  # - mvn package -pl abixen-platform-web-client -DskipDocker -Dspring.profiles.active=dev
   
-
+ 
   
