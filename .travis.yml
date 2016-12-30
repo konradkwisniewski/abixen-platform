@@ -6,4 +6,4 @@ jdk:
 install: true
 
 script:
-  - mvn build -pl abixen-platform-eureka -DskipDocker
+  - mvn package -pl abixen-platform-eureka -DskipDocker
