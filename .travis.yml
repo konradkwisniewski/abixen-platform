@@ -15,14 +15,7 @@ branches:
   - master
   
 script:
- # - mvn install -DskipDocker
-  - mvn clean install -DskipTests sonar:sonar -DskipDocker -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN
- # - mvn package -pl abixen-platform-eureka -DskipDocker
- # - mvn package -pl abixen-platform-configuration -DskipDocker
- # - mvn package -pl abixen-platform-gateway -DskipDocker -Dspring.profiles.active=dev
-  #- mvn package -pl abixen-platform-business-intelligence-service -DskipDocker -Dspring.profiles.active=dev -DcreateDbSchema=true
- # - mvn package -pl abixen-platform-core -DskipDocker -Dspring.profiles.active=dev -DcreateDbSchema=true
- # - mvn package -pl abixen-platform-web-client -DskipDocker -Dspring.profiles.active=dev
+  - mvn clean install sonar:sonar -DskipDocker -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN
   
  
   
