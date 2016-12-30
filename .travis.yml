@@ -3,7 +3,7 @@ sudo: false
 jdk:
   - oraclejdk8
 
-instal: false
+instal: true
 
 script:
   - mvn install -DskipDocker
