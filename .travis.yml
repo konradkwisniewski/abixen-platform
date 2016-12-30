@@ -5,8 +5,14 @@ jdk:
 dist: trusty
 install: true
 
+env:
+  global:
+    - SONAR_RUNNER_OPTS="-Xmx2048m -XX:MaxPermSize=1024m -XX:ReservedCodeCacheSize=512m"  
+    - secure: "L/V3irkIIqVNYxsnOkNGm+6PVMJcDWWgG1Qucg7byEf4puYyiryIaJn6IYZXZFY/x7PtnwtrVNHVDrN0ux4QKtIv4LzDxLVrFWOlHz3FeNpnCz3zvHPJ8L1hqDuaK7WO0O2cIoKMHfFM6me5ob65qoOyloGaLOBDCwzrbb2kmMp9xAN6OlbjsLzqU6nRQOs7FMAKNbJEQVsaGpEwoIqsZTgjsDELlPfhg4KsKaxZ06yEgRoe47eyaxWlsnkmQXO3q6P3gDoZCSwhF9zj2DzqTflm/2DvmAtxLnvgajayx+I3O/684jVP0H6FfbaGAf3h1FCm5WumxqQ0iJiSfwYl8M6BCLPaEL2JODFxSzjpZX0kG6w13d86aJrc3K8TBHoZKppm+iiS9xTMfVaY3xs2gewp7aIK4pWfzIfVu6obBJMfQIAFPFkgM987hnSGfam7LmDVnip+ATjMj/PwlpRAhvbnZZ9lIjOFFc3WaRoh6LCj9uEIC/1yaQErBtbKCVjrStYN4Wt0/v9mH7+AgdsRltiMAQQVxzttZHY2qPImWPs03JFc5VL1hcSTeZdaowkbIwDnzoCfDlCDEAz3XIqFG+Ll8wWFui6Oan5B2TX1nYeFCzw1M28BkXiAG26/6qU3aSMM3OyyILu02aNoDmG9YMwlWocZAuKmSIFMfCkuiHU="
+
 script:
-  - mvn install -DskipDocker
+ # - mvn install -DskipDocker
+  - mvn clean install sonar:sonar -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN
  # - mvn package -pl abixen-platform-eureka -DskipDocker
  # - mvn package -pl abixen-platform-configuration -DskipDocker
  # - mvn package -pl abixen-platform-gateway -DskipDocker -Dspring.profiles.active=dev
@@ -14,15 +20,5 @@ script:
  # - mvn package -pl abixen-platform-core -DskipDocker -Dspring.profiles.active=dev -DcreateDbSchema=true
  # - mvn package -pl abixen-platform-web-client -DskipDocker -Dspring.profiles.active=dev
   
-env:
-  global:
-    - SONAR_RUNNER_OPTS="-Xmx2048m -XX:MaxPermSize=1024m -XX:ReservedCodeCacheSize=512m"  
-  
-addons:
-  sonarqube:
-    token:
-       secure: "L/V3irkIIqVNYxsnOkNGm+6PVMJcDWWgG1Qucg7byEf4puYyiryIaJn6IYZXZFY/x7PtnwtrVNHVDrN0ux4QKtIv4LzDxLVrFWOlHz3FeNpnCz3zvHPJ8L1hqDuaK7WO0O2cIoKMHfFM6me5ob65qoOyloGaLOBDCwzrbb2kmMp9xAN6OlbjsLzqU6nRQOs7FMAKNbJEQVsaGpEwoIqsZTgjsDELlPfhg4KsKaxZ06yEgRoe47eyaxWlsnkmQXO3q6P3gDoZCSwhF9zj2DzqTflm/2DvmAtxLnvgajayx+I3O/684jVP0H6FfbaGAf3h1FCm5WumxqQ0iJiSfwYl8M6BCLPaEL2JODFxSzjpZX0kG6w13d86aJrc3K8TBHoZKppm+iiS9xTMfVaY3xs2gewp7aIK4pWfzIfVu6obBJMfQIAFPFkgM987hnSGfam7LmDVnip+ATjMj/PwlpRAhvbnZZ9lIjOFFc3WaRoh6LCj9uEIC/1yaQErBtbKCVjrStYN4Wt0/v9mH7+AgdsRltiMAQQVxzttZHY2qPImWPs03JFc5VL1hcSTeZdaowkbIwDnzoCfDlCDEAz3XIqFG+Ll8wWFui6Oan5B2TX1nYeFCzw1M28BkXiAG26/6qU3aSMM3OyyILu02aNoDmG9YMwlWocZAuKmSIFMfCkuiHU="
-script:
-  # other script steps might be done before running the actual SonarQube analysis
-  - sonar-scanner  
+
   
