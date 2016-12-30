@@ -7,7 +7,7 @@ install: true
 
 script:
   - mvn install -DskipDocker
-  - mvn package -pl abixen-platform-eureka -DskipDocker
+ # - mvn package -pl abixen-platform-eureka -DskipDocker
  # - mvn package -pl abixen-platform-configuration -DskipDocker
  # - mvn package -pl abixen-platform-gateway -DskipDocker -Dspring.profiles.active=dev
   #- mvn package -pl abixen-platform-business-intelligence-service -DskipDocker -Dspring.profiles.active=dev -DcreateDbSchema=true
