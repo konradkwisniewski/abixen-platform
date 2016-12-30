@@ -12,7 +12,7 @@ env:
 
 script:
  # - mvn install -DskipDocker
-  - mvn clean install sonar:sonar -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN
+  - mvn clean install sonar:sonar -DskipDocker -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN
  # - mvn package -pl abixen-platform-eureka -DskipDocker
  # - mvn package -pl abixen-platform-configuration -DskipDocker
  # - mvn package -pl abixen-platform-gateway -DskipDocker -Dspring.profiles.active=dev
