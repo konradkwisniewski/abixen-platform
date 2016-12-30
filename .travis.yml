@@ -7,3 +7,4 @@ install: true
 
 script:
   - mvn install -DskipDocker
+  - mvn spring-boot:run -DskipDocker
