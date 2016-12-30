@@ -14,6 +14,10 @@ script:
  # - mvn package -pl abixen-platform-core -DskipDocker -Dspring.profiles.active=dev -DcreateDbSchema=true
  # - mvn package -pl abixen-platform-web-client -DskipDocker -Dspring.profiles.active=dev
   
+env:
+  global:
+    - SONAR_RUNNER_OPTS="-Xmx2048m -XX:MaxPermSize=1024m -XX:ReservedCodeCacheSize=512m"  
+  
 addons:
   sonarqube:
     token:
