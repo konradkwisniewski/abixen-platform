@@ -6,4 +6,4 @@ jdk:
 install: true
 
 script:
-  - mvn spring-boot:run -pl abixen-platform-eureka -DskipDocker
+  - mvn build -pl abixen-platform-eureka -DskipDocker
