@@ -1,5 +1,9 @@
 language: java
+sudo: false
 jdk:
   - oraclejdk8
+
+instal: false
+
 script:
   - mvn install -DskipDocker
